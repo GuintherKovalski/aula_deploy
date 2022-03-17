@@ -17,5 +17,7 @@ request_json = {'Pregnancies':              3.0,
 if __name__ == '__main__':
     data = json.dumps(request_json) 
     send_request = requests.post(url, data)
+    #print(dir(send_request))
     print(send_request)
+    print(json.loads(send_request.text))
     

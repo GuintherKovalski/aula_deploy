@@ -1,33 +1,19 @@
-import pandas as pd
-from flask import Flask, jsonify, request
-import pickle
+import sys
+sys.path.append("/home/pacer/Desktop/DigitalHouse/aulas_16_18/aula_deploy")
+
+from flask import Flask, request
 import numpy as np
+from src.model.model import Diabetes
+from src.modulos.parser import parser
 
-# load model
-model = pickle.load(open('model/svc.pkl','rb'))
-
-# app
 app = Flask(__name__)
+diabetes = Diabetes()
 
-# routes
 @app.route('/', methods=['POST'])
-def predict():
-    
-    # get data
-    data = request.get_json(force=True)
-    data = dict(data)
-    
-    values = []
-    for key in data:
-        values.append(data[key])
-    values = np.array(values).reshape(1, -1) 
-    
-    result = model.predict(values)
-
-    output = {'results': int(result[0])}
-    
-    print(output)
-    return jsonify(results=output)
+def predict(): 
+    values = parser(request)
+    result = diabetes.predict(values)
+    return jsonify(results=result)
 
 if __name__ == '__main__':
     app.run(port = 5000, debug=True)
