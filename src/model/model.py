@@ -1,5 +1,5 @@
 import pickle
-from flask import jsonify
+
 import numpy as np
 
 class Diabetes:
@@ -11,6 +11,10 @@ class Diabetes:
     def predict(self,values:np.ndarray)-> dict:
 
         """
+        #TODO predições a partir de batch
+        #TODO gerar receber o nome da pessoa
+
+
         Classificar se a pessoa tem diabetes [Positivo] 
         ou não [Negativo]
 
@@ -32,7 +36,7 @@ class Diabetes:
         -----------------------------
         Retorna
             Um dicionário contendo o resultado da classificação
-        
+
         """
 
         result = self.model.predict(values)

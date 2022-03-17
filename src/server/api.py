@@ -1,7 +1,7 @@
 import sys
 sys.path.append("/home/pacer/Desktop/DigitalHouse/aulas_16_18/aula_deploy")
 
-from flask import Flask, request
+from flask import Flask,  jsonify, request
 import numpy as np
 from src.model.model import Diabetes
 from src.modulos.parser import parser
