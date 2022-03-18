@@ -1,5 +1,6 @@
 import sys
-sys.path.append("/home/pacer/Desktop/DigitalHouse/aulas_16_18/aula_deploy")
+import os
+sys.path.append(os.getcwd())
 
 from flask import Flask,  jsonify, request
 import numpy as np
