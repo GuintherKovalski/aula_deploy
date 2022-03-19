@@ -4,7 +4,7 @@ import time
 import numpy as np
 
 # url local - definida no app.py - executada pelo Flask
-url = 'http://127.0.0.1:5000'
+url = 'https://aula-deploy-dia-18.herokuapp.com/'
 
 # parâmetros de entrada:
 Pregnancies              = [i for i in range(3)]

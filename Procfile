@@ -1,2 +1,2 @@
 web: gunicorn --bind 0.0.0.0:${PORT} wsgi
-web: python src/server/api.py
+web: sh setup.sh && streamlit run test.py
